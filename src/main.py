@@ -1,13 +1,3 @@
-from flask import Flask
-
-app = Flask(__name__)  # variável principal
-
-@app.route("/")  # define a rota para a raiz
-def index():  # página principal nome index (padrão de fato)
-    return "Olá CDF!"
-
-if __name__ == "__main__":
-    app.run()
 
 #import pandas as pd
 # import re
