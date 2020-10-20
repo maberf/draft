@@ -8,10 +8,10 @@
 #product = lambda x, y : x * y
 #print(product(2, 3))
 
-'''def x (a, b):
+def x (a, b):
     return a * b
 var = x(2, 3)
-print(var)'''
+print(var)
 
 '''var = lambda a, b : a * b
 print (var(2,3))'''
