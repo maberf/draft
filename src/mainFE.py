@@ -14,7 +14,7 @@ import plotly.graph_objs as go
 # site capture and parsing
 site = WebTableParser()
 site.create('https://www.fundsexplorer.com.br/ranking',
-            'table table-hover')
+            'id', 'table-ranking')
 table = site.capture()
 df = site.parse(table)
 #

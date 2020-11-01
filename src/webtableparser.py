@@ -21,12 +21,14 @@ class WebTableParser:
         [type] pandas.core.frame.DataFrame
     """
     site = ''
-    tableClassName = ''
+    tableKey = ''
+    tableName = ''
 
     @classmethod
-    def create(cls, site, tableClassName):
+    def create(cls, site, tableKey, tableName):
         cls.site = site
-        cls.tableClassName = tableClassName
+        cls.tableKey = tableKey
+        cls.tableName = tableName
         pass
 
     @classmethod
@@ -40,7 +42,7 @@ class WebTableParser:
                                   headers={'User-Agent': 'Mozilla/5.0'})
         page = request.urlopen(siteurl)
         soup = BeautifulSoup(page, 'html5lib')
-        table = soup.find('table', attrs={'class': cls.tableClassName})
+        table = soup.find('table', attrs={cls.tableKey: cls.tableName})
         return table
 
     def parse(self, table):
