@@ -41,6 +41,18 @@ rsf = processFE_df(df)
 my_rsf = rsf.loc[(rsf['codigo'] == 'HGRU11') | (rsf['codigo'] == 'XPLG11') |
                  (rsf['codigo'] == 'VISC11') | (rsf['codigo'] == 'SADI11') |
                  (rsf['codigo'] == 'HFOF11')]
+my_rsf['p/vpaaqN'] = 0.0
+my_rsf['p/vpaaqN'].loc[my_rsf['codigo'] == 'HGRU11'] = 1.17
+my_rsf['p/vpaaqN'].loc[my_rsf['codigo'] == 'XPLG11'] = 1.16
+my_rsf['p/vpaaqN'].loc[my_rsf['codigo'] == 'VISC11'] = 0.90
+my_rsf['p/vpaaqN'].loc[my_rsf['codigo'] == 'SADI11'] = 1.00
+my_rsf['p/vpaaqN'].loc[my_rsf['codigo'] == 'HFOF11'] = 1.17
+# my_rsf['precomedioR$'] = 0.0
+# my_rsf['precomedioR$'].loc[my_rsf['codigo'] == 'HGRU11'] = 132.15
+# my_rsf['precomedioR$'].loc[my_rsf['codigo'] == 'XPLG11'] = 128.28
+# my_rsf['precomedioR$'].loc[my_rsf['codigo'] == 'VISC11'] = 110.57
+# my_rsf['precomedioR$'].loc[my_rsf['codigo'] == 'SADI11'] = 102.00
+# my_rsf['precomedioR$'].loc[my_rsf['codigo'] == 'HFOF11'] = 118.67
 #
 # real state funds (rsf) dataframe in general being filtered by criteria
 rsf = rsf.loc[rsf['dy12macum%'] >= 4.00]  # 1st filter DY > 4%
@@ -62,14 +74,19 @@ trace00 = go.Bar(x=x0, y=my_rsf['dy12macum%'],
                  name='DY% Ano', marker_color='rgb(36, 124, 220)')
 trace01 = go.Bar(x=x0, y=my_rsf['p/vpaN'],
                  name='P/VPA', marker_color='rgb(85, 171, 124)')
-trace02 = go.Bar(x=x0, y=my_rsf['vacfisica%'],
-                 name='%Vacância Física', marker_color='rgb(213, 83, 43)')
-data0 = [trace00, trace01, trace02]
+trace02 = go.Bar(x=x0, y=my_rsf['p/vpaaqN'],
+                 name='P/VPAaq', marker_color='rgb(153, 204, 50)')
+trace03 = go.Bar(x=x0, y=my_rsf['vacfisica%'],
+                 name='%Vacância Física', marker_color='rgb(228, 120, 51)')
+trace04 = go.Bar(x=x0, y=my_rsf['varpatr%'],
+                 name='%Var. Patr. Acum', marker_color='rgb(213, 83, 43)')
+data0 = [trace00, trace01, trace02, trace03, trace04]
 fig0 = go.Figure(data0)
-fig0.update_layout(title='MEUS FIIs | DY Acum Ano, P/VPA, Vacância Física')
+fig0.update_layout(title='MEUS FIIs | DY Acum Ano, P/VPA, P/VPAaq, Vacância Física')
 fig0.show()
 py.plot(fig0)
 print(date_time_sp)
+print(my_rsf)
 #
 # bar chart 1 - brick funds
 '''x1 = [rsf_brick['setor'], rsf_brick['codigo']]
