@@ -1,20 +1,12 @@
 
-#import pandas as pd
+# import pandas as pd
 # import re
+# importar as bibliotecas necessárias
+
+
 #df = pd.DataFrame({'$jossknsa':[1,2], '$khsDBb': [10,20]})
 #df.columns = ['a', 'b']
 #print(df)
-
-#product = lambda x, y : x * y
-#print(product(2, 3))
-
-def x (a, b):
-    return a * b
-var = x(2, 3)
-print(var)
-
-'''var = lambda a, b : a * b
-print (var(2,3))'''
 
 '''stringDataFrame = pd.DataFrame({'A':['gdgdg454dgd','147ooo2', '123ss45678'],
                                 'B':['gdgdg454dgd','x142', '12345678a'],
@@ -35,3 +27,15 @@ print(text3)
 text4 = 'TÃ tulo e Val. Mob.'
 text4 = re.sub(r'Ã ', 'i', text4)
 print(text4)'''
+
+#product = lambda x, y : x * y
+#print(product(2, 3))
+
+#def x (a, b):
+#    return a * b
+#var = x(2, 3)
+# print(var)
+
+'''var = lambda a, b : a * b
+print (var(2,3))'''
+
