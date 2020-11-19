@@ -1,6 +1,6 @@
 
-# import pandas as pd
-# import re
+import pandas as pd
+import re
 # importar as bibliotecas necessárias
 
 
@@ -8,12 +8,12 @@
 #df.columns = ['a', 'b']
 #print(df)
 
-'''stringDataFrame = pd.DataFrame({'A':['gdgdg454dgd','147ooo2', '123ss45678'],
+stringDataFrame = pd.DataFrame({'A':['gdgdg454dgd','147ooo2', '123ss45678'],
                                 'B':['gdgdg454dgd','x142', '12345678a'],
                                 'C':['gdgdg454dgd','xx142', '12567dd8']})
 print (stringDataFrame)
 stringDataFrame = stringDataFrame.applymap(lambda x: re.sub(r'[^0-9]', '', x) if (len(x) >= 7) else x)
-print (stringDataFrame)'''
+print (stringDataFrame)
 
 '''text1 = 'caixa 1 é azul, caixa 10 está verde, caixa 100 está vazia'
 text1 = text1.replace('caixa 1', 'pacote 2')
